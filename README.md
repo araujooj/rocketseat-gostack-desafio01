@@ -6,50 +6,41 @@
 </h1>
 
 <h3 align="center">
-  Módulo 01 - Conceitos do NodeJS
+  Desafio 01 - Conceitos do NodeJS
 </h3>
 
 <blockquote align="center">"Muito a aprender você ainda tem. - Mestre Yoda”</blockquote>
 
 <blockquote align="center">
-  <a href="#rocket-sobre-o-modulo">Sobre o módulo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#conceitos-abordados">Conceitos abordados</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-qual-foi-o-desafio">Qual foi o desafio?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rotas-da-nossa-mini-aplicacao">Rotas da nossa mini aplicação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#tutorial">Tutorial</a>
 </blockquote>
 
-## :rocket: Sobre o módulo
+## :rocket: Qual foi o desafio?
 
-Esse módulo foi principalmente feito para servir como base para os próximos módulos com NodeJS, ensinando conceitos fundamentais para uma boa jornada no desenvolvimento do backend.
+Esse desafio é para colocar em prática os conceitos e as práticas que foram ensinadas no módulo 01, que você pode encontrar 
+nesse [Repositório](https://github.com/araujooj/rocketseat-gostack-modulo01), onde documentei e falei um pouco sobre.
 
-### :clipboard: Conceitos abordados
+### :clipboard: Rotas da nossa mini aplicação
+ `POST /projects`: Nessa rota, é onde armazena os projetos cadastrados pelo usuário, em um array dentro de nossa aplicação.
+ Exemplo de requisição abaixo.
 
-- `Rotas`: Rotas, é por onde principalmente as requisições vão acontecer, neste módulo também é abordado alguns conceitos do node que explicam de forma técnica como funcionam as rotas, e como a "Call Stack" funciona, com eventos em loop sempre "ouvindo" as rotas e fazendo com que as funções funcionem em forma de pilha. `Rotas no projeto:`
--- `GET /users` - Lista todos os usuários
--- `GET /users/:id` - Lista um usuário específico
--- `POST /users`  - Cria um usuário
--- `PUT /users/:id` - Edita o usuário especificado
--- `DELETE /users/:id` - Deleta o usuário especificado
-
-- `Middlewares`: Middlewares são principalmente, formas de regular e manipular as requisições, podendo alterar os dados retornados na resposta. Exemplos usados no projeto:
-```
-function checkUserExists( req, res , next) {
-  const name = req.body.name
-  if(!name) {
-    return res.status(400).json({error : "Name is required"})
+  ```js
+[
+  {
+    id: "1",
+    title: "Novo projeto",
+    tasks: ["Nova tarefa"]
   }
-  next()
-}
+];
 ```
-```
-function checkUserInArray( req, res , next) {
-  const user = users[req.params.index]
-  if(!user) {
-    return res.status(404).json({error : "User not found"})
-  }
-  req.user = user
-  next()
-}
-```
+
+- `GET /projects`: Rota que exibe todos os projetos;
+
+- `PUT /projects/:id`: Rota que tem a função de alterar os projetos já cadastrados;
+
+- `DELETE /projects/:id`: Deleta o projeto informado;
 
 
 ### :question: Tutorial: Como rodar o projeto?
